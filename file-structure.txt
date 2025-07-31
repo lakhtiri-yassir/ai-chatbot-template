@@ -1,0 +1,131 @@
+ai-chatbot-template/
+├── .github/
+│   └── workflows/
+│       ├── deploy-backend.yml
+│       └── deploy-frontend.yml
+├── .gitignore
+├── README.md
+├── package.json (workspace root)
+└── apps/
+   ├── backend/
+   │   ├── src/
+   │   │   ├── config/
+   │   │   │   ├── database.js
+   │   │   │   ├── redis.js
+   │   │   │   ├── openrouter.js
+   │   │   │   └── index.js
+   │   │   ├── controllers/
+   │   │   │   ├── chat.controller.js
+   │   │   │   ├── knowledge.controller.js
+   │   │   │   └── health.controller.js
+   │   │   ├── middleware/
+   │   │   │   ├── auth.middleware.js
+   │   │   │   ├── error.middleware.js
+   │   │   │   ├── rateLimit.middleware.js
+   │   │   │   └── cors.middleware.js
+   │   │   ├── models/
+   │   │   │   ├── Conversation.model.js
+   │   │   │   ├── Message.model.js
+   │   │   │   ├── Document.model.js
+   │   │   │   └── Chunk.model.js
+   │   │   ├── routes/
+   │   │   │   ├── chat.routes.js
+   │   │   │   ├── knowledge.routes.js
+   │   │   │   └── index.js
+   │   │   ├── services/
+   │   │   │   ├── openrouter.service.js
+   │   │   │   ├── embedding.service.js
+   │   │   │   ├── vector.service.js
+   │   │   │   ├── chunking.service.js
+   │   │   │   ├── knowledge.service.js
+   │   │   │   └── cache.service.js
+   │   │   ├── sockets/
+   │   │   │   ├── handlers/
+   │   │   │   │   ├── chat.handler.js
+   │   │   │   │   └── typing.handler.js
+   │   │   │   └── index.js
+   │   │   ├── utils/
+   │   │   │   ├── textChunker.js
+   │   │   │   ├── documentProcessor.js
+   │   │   │   ├── vectorStore.js
+   │   │   │   ├── logger.js
+   │   │   │   └── similarity.js
+   │   │   └── app.js
+   │   ├── knowledge/
+   │   │   ├── documents/
+   │   │   │   ├── user-manual.pdf
+   │   │   │   ├── faq.md
+   │   │   │   └── api-docs.docx
+   │   │   └── processed/
+   │   │       └── .gitkeep
+   │   ├── tests/
+   │   │   ├── services/
+   │   │   └── utils/
+   │   ├── .env.example
+   │   ├── .env
+   │   ├── package.json
+   │   └── server.js
+   └── frontend/
+       ├── public/
+       │   ├── index.html
+       │   ├── favicon.ico
+       │   └── manifest.json
+       ├── src/
+       │   ├── components/
+       │   │   ├── common/
+       │   │   │   ├── Avatar/
+       │   │   │   ├── Button/
+       │   │   │   ├── Input/
+       │   │   │   ├── LoadingSpinner/
+       │   │   │   └── Tooltip/
+       │   │   ├── chat/
+       │   │   │   ├── ChatContainer/
+       │   │   │   ├── ChatInput/
+       │   │   │   ├── MessageBubble/
+       │   │   │   ├── MessageList/
+       │   │   │   ├── TypingIndicator/
+       │   │   │   └── QuickActions/
+       │   │   ├── sidebar/
+       │   │   │   ├── ConversationHistory/
+       │   │   │   ├── KnowledgeStatus/
+       │   │   │   └── Settings/
+       │   │   └── layout/
+       │   │       ├── Header/
+       │   │       ├── Sidebar/
+       │   │       └── Layout/
+       │   ├── context/
+       │   │   ├── ChatContext.jsx
+       │   │   ├── SocketContext.jsx
+       │   │   └── ThemeContext.jsx
+       │   ├── hooks/
+       │   │   ├── useChat.js
+       │   │   ├── useSocket.js
+       │   │   ├── useTyping.js
+       │   │   └── useKnowledge.js
+       │   ├── pages/
+       │   │   ├── Chat/
+       │   │   ├── Admin/
+       │   │   └── NotFound/
+       │   ├── services/
+       │   │   ├── api.js
+       │   │   ├── chat.service.js
+       │   │   ├── knowledge.service.js
+       │   │   └── socket.service.js
+       │   ├── utils/
+       │   │   ├── constants.js
+       │   │   ├── formatters.js
+       │   │   ├── helpers.js
+       │   │   └── markdown.js
+       │   ├── styles/
+       │   │   ├── components/
+       │   │   ├── globals.css
+       │   │   └── tailwind.css
+       │   ├── App.jsx
+       │   ├── main.jsx
+       │   └── index.css
+       ├── .env.example
+       ├── .env.local
+       ├── package.json
+       ├── vite.config.js
+       ├── tailwind.config.js
+       └── postcss.config.js

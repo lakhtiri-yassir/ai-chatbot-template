@@ -1,0 +1,545 @@
+/* Main index.css - Entry point for all styles */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Import Tailwind CSS base styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Import global styles and CSS variables */
+@import './styles/globals.css';
+
+/* Import Tailwind component overrides */
+@import './styles/tailwind.css';
+
+/* Import all component styles */
+@import './styles/components/chat.css';
+@import './styles/components/sidebar.css';
+@import './styles/components/buttons.css';
+@import './styles/components/forms.css';
+@import './styles/components/modals.css';
+@import './styles/components/notifications.css';
+@import './styles/components/loading.css';
+@import './styles/components/typography.css';
+
+/* Application-specific base styles */
+html {
+  /* Enable smooth scrolling */
+  scroll-behavior: smooth;
+  
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  
+  /* Prevent text size adjustment on iOS */
+  -webkit-text-size-adjust: 100%;
+  
+  /* Better tap targets on touch devices */
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  /* Use Inter font family */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  
+  /* Set base font properties */
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  font-weight: 400;
+  
+  /* Set color and background */
+  color: var(--color-text);
+  background-color: var(--color-background);
+  
+  /* Enable font feature settings for better typography */
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  font-variant-ligatures: common-ligatures;
+  
+  /* Prevent horizontal scroll */
+  overflow-x: hidden;
+  
+  /* Ensure full height */
+  min-height: 100vh;
+  
+  /* Better font rendering on Windows */
+  font-synthesis: none;
+}
+
+/* Root container styles */
+#root {
+  /* Ensure full height */
+  min-height: 100vh;
+  
+  /* Create stacking context */
+  isolation: isolate;
+  
+  /* Better font rendering */
+  text-rendering: optimizeLegibility;
+}
+
+/* Focus styles for better accessibility */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background-color: var(--color-primary);
+  color: white;
+  text-shadow: none;
+}
+
+/* Scrollbar styles for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-surface);
+}
+
+/* Firefox scrollbar styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) var(--color-surface);
+}
+
+/* Image optimization */
+img {
+  /* Prevent images from overflowing */
+  max-width: 100%;
+  height: auto;
+  
+  /* Better image rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Video optimization */
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better button reset */
+button {
+  /* Remove default button styles */
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  
+  /* Inherit font properties */
+  font-family: inherit;
+  font-size: inherit;
+  
+  /* Remove default focus outline */
+  outline: none;
+  
+  /* Better cursor */
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Better input reset */
+input,
+textarea,
+select {
+  /* Inherit font properties */
+  font-family: inherit;
+  font-size: inherit;
+  
+  /* Remove default styles */
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  
+  /* Remove default focus outline */
+  outline: none;
+}
+
+/* Better link styles */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+/* Better list styles */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Better heading styles */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+}
+
+/* Better paragraph styles */
+p {
+  margin: 0;
+  line-height: var(--line-height-normal);
+}
+
+/* Code and pre styles */
+code {
+  font-family: var(--font-family-mono);
+  font-size: 0.875em;
+  background-color: var(--color-surface);
+  padding: 0.125rem 0.25rem;
+  border-radius: var(--radius-sm);
+}
+
+pre {
+  font-family: var(--font-family-mono);
+  background-color: var(--color-surface);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Table styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Form element improvements */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Better checkbox and radio styles */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--color-primary);
+}
+
+/* Loading animation keyframes */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Utility classes for common animations */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Print styles */
+@media print {
+  /* Hide non-essential elements */
+  .sidebar,
+  .chat-header,
+  .chat-input-container,
+  .notification,
+  .modal {
+    display: none !important;
+  }
+  
+  /* Optimize text for printing */
+  body {
+    color: black !important;
+    background: white !important;
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  /* Better page breaks */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  p, blockquote, ul, ol {
+    page-break-inside: avoid;
+  }
+  
+  /* Show URLs for links */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: #000000;
+    --color-text-secondary: var(--color-text);
+    --color-text-muted: var(--color-text);
+  }
+  
+  [data-theme="dark"] {
+    --color-border: #ffffff;
+    --color-text-secondary: var(--color-text);
+    --color-text-muted: var(--color-text);
+  }
+  
+  /* Increase border width for better visibility */
+  button,
+  input,
+  textarea,
+  select {
+    border-width: 2px !important;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all animations and transitions */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Remove transform animations */
+  .animate-spin,
+  .animate-pulse,
+  .animate-bounce,
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-slide-down {
+    animation: none !important;
+  }
+}
+
+/* Force color scheme for better compatibility */
+:root {
+  color-scheme: light dark;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* Better mobile viewport handling */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific styles */
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Better focus for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  button:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* Container query support preparation */
+@supports (container-type: inline-size) {
+  .container-query-ready {
+    container-type: inline-size;
+  }
+}
+
+/* Better dark mode handling for images */
+@media (prefers-color-scheme: dark) {
+  img:not([src*=".svg"]) {
+    opacity: 0.8;
+  }
+}
+
+/* Performance optimization for animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Better handling of long content */
+.break-words {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Utility for hiding content visually but keeping it for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Utility for truncating text */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Utility for multi-line truncation */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -1,0 +1,56 @@
+{
+  "name": "ai-chatbot-template",
+  "version": "1.0.0",
+  "description": "A comprehensive AI chatbot template with real-time chat and knowledge base integration",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd apps/backend && npm run dev",
+    "dev:frontend": "cd apps/frontend && npm run dev",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "cd apps/backend && npm run build",
+    "build:frontend": "cd apps/frontend && npm run build",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd apps/backend && npm test",
+    "test:frontend": "cd apps/frontend && npm test",
+    "lint": "npm run lint:backend && npm run lint:frontend",
+    "lint:backend": "cd apps/backend && npm run lint",
+    "lint:frontend": "cd apps/frontend && npm run lint",
+    "install:all": "npm install && cd apps/backend && npm install && cd ../frontend && npm install",
+    "clean": "rm -rf node_modules apps/*/node_modules apps/*/dist apps/*/build",
+    "deploy:vercel": "vercel --prod",
+    "deploy:vercel:preview": "vercel"
+  },
+  "keywords": [
+    "ai",
+    "chatbot",
+    "nodejs",
+    "react",
+    "socket.io",
+    "mongodb",
+    "redis",
+    "openrouter",
+    "vercel",
+    "real-time"
+  ],
+  "author": "Yvexan Agency",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ai-chatbot-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/ai-chatbot-template/issues"
+  },
+  "homepage": "https://github.com/yourusername/ai-chatbot-template#readme"
+} 
