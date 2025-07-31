@@ -323,56 +323,24 @@ npm run coverage      # Run tests with coverage
 
 ## 🚀 Deployment
 
-### Quick Deploy to Vercel (Recommended)
+### Production Build
 
-The easiest way to deploy your AI chatbot is using Vercel. We've provided a deployment script to make this process seamless.
-
-#### Prerequisites
-
-1. **Vercel Account**: Sign up at [vercel.com](https://vercel.com)
-2. **Vercel CLI**: Install globally with `npm i -g vercel`
-3. **External Services**: Set up MongoDB Atlas, Redis Cloud, and get an OpenRouter API key
-
-#### One-Command Deployment
+#### Backend
 
 ```bash
-# Make the deployment script executable (first time only)
-chmod +x deploy.sh
-
-# Deploy to preview
-./deploy.sh
-
-# Deploy to production
-./deploy.sh --prod
+cd apps/backend
+npm run build
+npm start
 ```
 
-#### Manual Deployment
+#### Frontend
 
-1. **Set up external services**:
+```bash
+cd apps/frontend
+npm run build
+```
 
-   - [MongoDB Atlas](https://www.mongodb.com/atlas) - Database
-   - [Redis Cloud](https://redis.com/try-free/) - Caching
-   - [OpenRouter](https://openrouter.ai/) - AI API
-
-2. **Configure environment variables**:
-
-   ```bash
-   # Create .env.local file
-   cp env.example .env.local
-   # Edit .env.local with your actual values
-   ```
-
-3. **Deploy via Vercel Dashboard**:
-   - Go to [vercel.com/dashboard](https://vercel.com/dashboard)
-   - Import your Git repository
-   - Configure environment variables
-   - Deploy
-
-For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
-
-### Alternative Deployment Options
-
-#### Docker Deployment
+### Docker Deployment
 
 Create a `docker-compose.yml` file:
 
@@ -412,24 +380,6 @@ services:
 
 volumes:
   mongodb_data:
-```
-
-#### Traditional Server Deployment
-
-##### Backend
-
-```bash
-cd apps/backend
-npm run build
-npm start
-```
-
-##### Frontend
-
-```bash
-cd apps/frontend
-npm run build
-# Serve the dist folder with your preferred web server
 ```
 
 ### Environment Variables for Production
